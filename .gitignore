@@ -8,3 +8,20 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Go
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Build artifacts
+bootcs-validate
+!cmd/bootcs-validate/
