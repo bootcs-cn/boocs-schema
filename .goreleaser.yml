@@ -41,7 +41,7 @@ changelog:
 
 release:
   github:
-    owner: bootcs
-    name: bootcs-schema
+    owner: bootcs-cn
+    name: boocs-schema
   draft: false
   prerelease: auto
