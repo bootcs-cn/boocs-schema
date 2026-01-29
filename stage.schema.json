@@ -34,7 +34,7 @@
     },
     "learning": {
       "type": "string",
-      "description": "学习材料（背景概念、知识讲解、案例补充、参考资料等，markdown 文件或内联内容）",
+      "description": "学习材料（背景概念、知识、技术讲解、案例补充、参考资料等，markdown 文件或内联内容）",
       "examples": ["LEARNING.md", "concepts.md", "# Background\n\nIn this problem..."]
     },
     "difficulty": {
