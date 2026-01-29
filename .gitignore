@@ -23,5 +23,5 @@ go.work
 go.work.sum
 
 # Build artifacts
-bootcs-validate
-!cmd/bootcs-validate/
+schema-tool
+!cmd/schema-tool/
