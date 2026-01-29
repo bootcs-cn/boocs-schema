@@ -44,7 +44,3 @@ code --install-extension redhat.vscode-yaml
 ```
 
 获得实时验证、自动补全和文档提示。
-
----
-
-**Schema 仓库**: https://github.com/bootcs-dev/bootcs-schema
