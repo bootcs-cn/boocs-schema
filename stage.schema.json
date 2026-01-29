@@ -4,7 +4,7 @@
   "title": "Bootcs Stage 定义",
   "description": "Bootcs stage 配置文件 (stage.yml) 的 schema 定义",
   "type": "object",
-  "required": ["slug", "name", "summary", "description", "files"],
+  "required": ["slug", "name", "summary", "description", "learning", "files"],
   "properties": {
     "slug": {
       "type": "string",
@@ -31,6 +31,11 @@
       "type": "string",
       "description": "Stage 详细描述（markdown 文件或内联内容）",
       "examples": ["README.md", "hello.md", "# Problem\n\nImplement..."]
+    },
+    "learning": {
+      "type": "string",
+      "description": "学习材料（背景概念、知识讲解、案例补充、参考资料等，markdown 文件或内联内容）",
+      "examples": ["LEARNING.md", "concepts.md", "# Background\n\nIn this problem..."]
     },
     "difficulty": {
       "type": "string",
@@ -112,7 +117,8 @@
       "name": "Hello",
       "difficulty": "easy",
       "summary": "编写一个简单的程序，提示用户输入名字，然后输出问候语。",
-      "description": "hello.md",
+      "description": "README.md",
+      "learning": "LEARNING.md",
       "category": "Week 1: C Basics",
       "files": {
         "required": ["hello.c"],

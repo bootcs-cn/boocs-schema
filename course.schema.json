@@ -4,14 +4,8 @@
   "title": "Bootcs 课程定义",
   "description": "Bootcs 课程配置文件 (course.yml) 的 schema 定义",
   "type": "object",
-  "required": ["version", "slug", "name", "summary"],
+  "required": ["slug", "name", "summary"],
   "properties": {
-    "version": {
-      "type": "string",
-      "description": "Schema 版本号",
-      "pattern": "^\\d+\\.\\d+$",
-      "examples": ["1.0", "2.0"]
-    },
     "slug": {
       "type": "string",
       "description": "课程唯一标识符（小写字母、数字、连字符）",
@@ -42,7 +36,7 @@
       "type": "string",
       "description": "课程图标 URL",
       "format": "uri",
-      "examples": ["https://cdn.bootcs.dev/icons/bcs100x.svg"]
+      "examples": ["https://cdn.bootcs.cn/icons/bcs100x.svg"]
     },
     "difficulty": {
       "type": "string",
@@ -112,7 +106,6 @@
   "additionalProperties": false,
   "examples": [
     {
-      "version": "1.0",
       "slug": "bcs100x",
       "name": "BCS100X: Introduction to Computer Science",
       "summary": "计算机科学入门课程，涵盖 C、Python、SQL 和 Web 开发。\n基于哈佛 CS50 2025 课程改编。",
