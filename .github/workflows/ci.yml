@@ -26,8 +26,8 @@ jobs:
       - name: Validate schema files
         run: |
           # 确保 schema 文件是有效的 JSON
-          jq empty course.schema.json
-          jq empty stage.schema.json
+          jq empty schemas/course.schema.json
+          jq empty schemas/stage.schema.json
 
   lint:
     runs-on: ubuntu-latest
