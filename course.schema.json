@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://bootcs.dev/schemas/course.schema.json",
+  "title": "Bootcs 课程定义",
+  "description": "Bootcs 课程配置文件 (course.yml) 的 schema 定义",
+  "type": "object",
+  "required": ["version", "slug", "name", "summary"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema 版本号",
+      "pattern": "^\\d+\\.\\d+$",
+      "examples": ["1.0", "2.0"]
+    },
+    "slug": {
+      "type": "string",
+      "description": "课程唯一标识符（小写字母、数字、连字符）",
+      "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$|^[a-z]$",
+      "minLength": 1,
+      "maxLength": 50,
+      "examples": ["bcs100x", "web-dev", "cs50"]
+    },
+    "name": {
+      "type": "string",
+      "description": "课程名称（人类可读）",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["BCS100X: Introduction to Computer Science", "Web Development Fundamentals"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "课程简介（1-3句话，支持多行）",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "description": {
+      "type": "string",
+      "description": "课程详细描述（markdown 文件路径或内联 markdown 内容）",
+      "examples": ["README.md", "# Course Overview\n\nThis course..."]
+    },
+    "icon": {
+      "type": "string",
+      "description": "课程图标 URL",
+      "format": "uri",
+      "examples": ["https://cdn.bootcs.dev/icons/bcs100x.svg"]
+    },
+    "difficulty": {
+      "type": "string",
+      "description": "课程难度等级",
+      "enum": ["easy", "medium", "hard"],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "description": "课程发布状态",
+      "enum": ["draft", "beta", "published", "archived"],
+      "default": "draft"
+    },
+    "languages": {
+      "type": "array",
+      "description": "课程使用的编程语言列表",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "examples": ["c", "python", "javascript", "go", "rust"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "description": "课程标签（用于分类和搜索）",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "uniqueItems": true,
+      "examples": [["algorithms", "data-structures", "web", "database"]]
+    },
+    "evaluation": {
+      "type": "object",
+      "description": "默认评测设置（可在每个 stage 中覆盖）",
+      "properties": {
+        "timeout": {
+          "type": "integer",
+          "description": "默认超时时间（秒）",
+          "minimum": 5,
+          "maximum": 600,
+          "default": 60
+        }
+      }
+    },
+    "accessType": {
+      "type": "string",
+      "description": "课程访问控制模式",
+      "enum": ["FREE", "FREEMIUM", "SUBSCRIPTION"],
+      "default": "FREE"
+    },
+    "stage_order": {
+      "type": "array",
+      "description": "Stage 顺序列表（定义 stage 的执行顺序）",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$|^[a-z]$"
+      },
+      "minItems": 1,
+      "maxItems": 200,
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "version": "1.0",
+      "slug": "bcs100x",
+      "name": "BCS100X: Introduction to Computer Science",
+      "summary": "计算机科学入门课程，涵盖 C、Python、SQL 和 Web 开发。\n基于哈佛 CS50 2025 课程改编。",
+      "description": "README.md",
+      "icon": "https://cdn.bootcs.dev/icons/bcs100x.svg",
+      "difficulty": "medium",
+      "status": "published",
+      "languages": ["c", "python", "sql"],
+      "tags": ["algorithms", "data-structures", "web"],
+      "evaluation": {
+        "timeout": 60
+      },
+      "stage_order": ["hello", "caesar", "cash"]
+    }
+  ]
+}
