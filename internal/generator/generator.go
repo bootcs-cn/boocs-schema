@@ -11,18 +11,17 @@ import (
 
 // Course represents course.yml structure
 type Course struct {
-	Slug       string   `yaml:"slug"`
-	Name       string   `yaml:"name"`
-	Summary    string   `yaml:"summary"`
-	Icon       string   `yaml:"icon"`
-	Difficulty string   `yaml:"difficulty"`
-	Status     string   `yaml:"status"`
-	Languages  []string `yaml:"languages"`
-	Tags       []string `yaml:"tags"`
-	Evaluation struct {
-		Timeout int `yaml:"timeout"`
-	} `yaml:"evaluation"`
-	StageOrder []string `yaml:"stage_order"`
+	Slug           string   `yaml:"slug"`
+	Name           string   `yaml:"name"`
+	Summary        string   `yaml:"summary"`
+	Icon           string   `yaml:"icon"`
+	Difficulty     string   `yaml:"difficulty"`
+	Status         string   `yaml:"status"`
+	Languages      []string `yaml:"languages"`
+	Tags           []string `yaml:"tags"`
+	DefaultTimeout int      `yaml:"defaultTimeout"`
+	AccessType     string   `yaml:"accessType"`
+	StageOrder     []string `yaml:"stage_order"`
 }
 
 // Stage represents stage.yml structure

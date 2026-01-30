@@ -4,7 +4,7 @@
   "title": "Bootcs Stage 定义",
   "description": "Bootcs stage 配置文件 (stage.yml) 的 schema 定义",
   "type": "object",
-  "required": ["slug", "name", "summary", "description", "learning", "files"],
+  "required": ["slug", "name", "summary", "description", "learning", "files_config"],
   "properties": {
     "slug": {
       "type": "string",
@@ -49,7 +49,7 @@
       "maxLength": 100,
       "examples": ["Week 1: C Basics", "Arrays", "Memory Management"]
     },
-    "files": {
+    "files_config": {
       "type": "object",
       "description": "文件访问控制配置",
       "properties": {
@@ -80,29 +80,11 @@
       },
       "additionalProperties": false
     },
-    "evaluation": {
-      "type": "object",
-      "description": "Stage 专属评测设置",
-      "properties": {
-        "timeout": {
-          "type": "integer",
-          "description": "超时时间（秒，覆盖课程默认值）",
-          "minimum": 5,
-          "maximum": 600
-        }
-      },
-      "additionalProperties": false
-    },
-    "tags": {
-      "type": "array",
-      "description": "Stage 专属标签",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 50
-      },
-      "uniqueItems": true,
-      "examples": [["strings", "arrays", "cryptography"]]
+    "timeout": {
+      "type": "integer",
+      "description": "超时时间（秒，覆盖课程默认值）",
+      "minimum": 5,
+      "maximum": 600
     },
     "isFree": {
       "type": "boolean",
@@ -120,14 +102,12 @@
       "description": "README.md",
       "learning": "LEARNING.md",
       "category": "Week 1: C Basics",
-      "files": {
+      "files_config": {
         "required": ["hello.c"],
         "allowed": ["*.c", "*.h", "Makefile"],
         "blocked": ["*.o"]
       },
-      "evaluation": {
-        "timeout": 30
-      }
+      "timeout": 30
     }
   ]
 }

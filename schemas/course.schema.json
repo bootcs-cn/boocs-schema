@@ -72,18 +72,12 @@
       "uniqueItems": true,
       "examples": [["algorithms", "data-structures", "web", "database"]]
     },
-    "evaluation": {
-      "type": "object",
-      "description": "默认评测设置（可在每个 stage 中覆盖）",
-      "properties": {
-        "timeout": {
-          "type": "integer",
-          "description": "默认超时时间（秒）",
-          "minimum": 5,
-          "maximum": 600,
-          "default": 60
-        }
-      }
+    "defaultTimeout": {
+      "type": "integer",
+      "description": "默认超时时间（秒，可在每个 stage 中覆盖）",
+      "minimum": 5,
+      "maximum": 600,
+      "default": 120
     },
     "accessType": {
       "type": "string",
@@ -110,14 +104,13 @@
       "name": "BCS100X: Introduction to Computer Science",
       "summary": "计算机科学入门课程，涵盖 C、Python、SQL 和 Web 开发。\n基于哈佛 CS50 2025 课程改编。",
       "description": "README.md",
+      "accessType": "FREE",
       "icon": "https://cdn.bootcs.dev/icons/bcs100x.svg",
       "difficulty": "medium",
       "status": "published",
       "languages": ["c", "python", "sql"],
       "tags": ["algorithms", "data-structures", "web"],
-      "evaluation": {
-        "timeout": 60
-      },
+      "defaultTimeout": 120,
       "stage_order": ["hello", "caesar", "cash"]
     }
   ]
